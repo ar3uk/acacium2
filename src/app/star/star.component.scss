@@ -1,0 +1,28 @@
+@import '../../assets/scss/palette';
+.btn-back {
+    position: absolute;
+    top: 50px;
+    left: 20px;
+    border: none;
+    background: transparent;
+    color: $white;
+    cursor: pointer;
+}
+
+.person {
+    padding: 20px;
+    mat-tab-group p:nth-child(3) {
+        color: $grey;
+    }
+    p {
+        color: $white;
+    }
+}
+
+@media (min-width: 768px) {
+    .card--holder {
+        width: 50%;
+        float: right;
+        background-color: #6a070e;
+    }
+}

@@ -1,0 +1,35 @@
+<h2 *ngIf="!dataParam">{{title}}</h2>
+<h2 *ngIf="dataParam">{{dataParam}}</h2>
+
+
+<div class="row" style="background-color: #6a070e;">
+    <div class="card--holder" *ngFor="let movie of movies By movieById">
+        <hr>
+        <div class="card">
+            <a [routerLink]="['/movie', movie.id]">
+                <div class="card-body">
+                    <h3 class="title--movie">{{movie.title}}</h3>
+                    <img *ngIf="movie.poster_path" [defaultImage]="'assets/images/no_poster_available.jpg'" [lazyLoad]="'https://image.tmdb.org/t/p/w185/' + movie.poster_path" alt="poster movie" style="height:240px;">
+                    <img *ngIf="!movie.poster_path" src="/assets/images/no_poster_available.jpg" alt="No poster available" style="height:240px;">
+                    <div class="movies-info">
+                        <p class="date">{{movie.release_date | date}}</p>
+                        <p><span>Rating: {{movie.vote_average}}</span></p>
+                        <p><span>Votes: {{movie.vote_count}}</span></p>
+                    </div>
+                    <!-- <div>
+                        <p class="movie--overview">{{ movie.overview }}</p>
+                    </div> -->
+
+                </div>
+            </a>
+        </div>
+
+    </div>
+</div>
+<hr>
+<ng-template #noData>
+    <h3>
+        {{'Movie-list.No results' | translate}}
+        <mat-icon>sentiment_very_dissatisfied</mat-icon>
+    </h3>
+</ng-template>
